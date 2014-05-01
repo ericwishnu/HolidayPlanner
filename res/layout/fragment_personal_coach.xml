@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/personal_info_label"
+                android:textSize="21sp" />
+
+            <ImageButton
+                android:id="@+id/btnEditPersonalInfo"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:contentDescription="@string/desc_personal_info_btn"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_action_edit" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:baselineAligned="false"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="7.5dp"
+                android:layout_weight="0.5"
+                android:background="@android:color/darker_gray"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingBottom="15dp"
+                android:paddingTop="15dp" >
+
+                <TextView
+                    android:id="@+id/lblWeightTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/weight_label"
+                    android:textColor="@android:color/white" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/lblWeightContent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/zero_label"
+                        android:textColor="@android:color/white"
+                        android:textSize="27sp" />
+
+                    <TextView
+                        android:id="@+id/labelWeightKg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/kg_label"
+                        android:textColor="@android:color/white"
+                        android:textSize="27sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="7.5dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_weight="0.5"
+                    android:background="@android:color/darker_gray"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingBottom="15dp"
+                    android:paddingTop="15dp" >
+
+                    <TextView
+                        android:id="@+id/labelHeightTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/height_label"
+                        android:textColor="@android:color/white" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:id="@+id/lblHeightContent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/zero_label"
+                            android:textColor="@android:color/white"
+                            android:textSize="27sp" />
+
+                        <TextView
+                            android:id="@+id/labelWeightCm"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/cm_label"
+                            android:textColor="@android:color/white"
+                            android:textSize="27sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- BMI -->
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/bmi_label"
+            android:textSize="21sp" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:baselineAligned="false"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight="0.5"
+                android:background="@android:color/darker_gray"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingBottom="15dp"
+                android:paddingTop="15dp" >
+
+                <TextView
+                    android:id="@+id/labelWeightTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bmi_subheader_label"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:id="@+id/labelBMIContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/zero_label"
+                    android:textColor="@android:color/white"
+                    android:textSize="27sp" />
+
+                <TextView
+                    android:id="@+id/labelBMIString"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Normal"
+                    android:textColor="#03d703"
+                    android:textSize="27sp" />
+            </LinearLayout>
+        </LinearLayout>
+        <!-- TARGET -->
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp" >
+
+            <ImageButton
+                android:id="@+id/btnEditTarget"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:contentDescription="@string/desc_personal_info_btn"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_action_edit" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                
+                android:padding="10dp"
+                android:text="@string/target_label"
+                android:textColor="@android:color/white"
+                android:textSize="21sp" />
+
+        </RelativeLayout>
+
+        <!-- TARGET - CALORIES -->
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:baselineAligned="false"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="7.5dp"
+                android:layout_weight="0.33"
+                android:background="@android:color/darker_gray"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingBottom="15dp"
+                android:paddingTop="15dp" >
+
+                <TextView
+                    android:id="@+id/labelCaloriesTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/calories_label"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:id="@+id/labelCaloriesContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/zero_label"
+                    android:textColor="@android:color/white"
+                    android:textSize="27sp" />
+
+                <TextView
+                    android:id="@+id/labelCaloriesUnit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/calories_unit_label"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp" />
+            </LinearLayout>
+            <!-- TARGET - TIME -->
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.33"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="7.5dp"
+                    android:layout_marginRight="7.5dp"
+                    android:layout_weight="0.33"
+                    android:background="@android:color/darker_gray"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingBottom="15dp"
+                    android:paddingTop="15dp" >
+
+                    <TextView
+                        android:id="@+id/labelTimeTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/time_label"
+                        android:textColor="@android:color/white" />
+
+                    <TextView
+                        android:id="@+id/labelTimeContent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/zero_label"
+                        android:textColor="@android:color/white"
+                        android:textSize="27sp" />
+
+                    <TextView
+                        android:id="@+id/labelTimeUnit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/time_unit_label"
+                        android:textColor="@android:color/white"
+                        android:textSize="15sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- TARGET - DISTANCE -->
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.33"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="7.5dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_weight="0.33"
+                    android:background="@android:color/darker_gray"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingBottom="15dp"
+                    android:paddingTop="15dp" >
+
+                    <TextView
+                        android:id="@+id/labelDistanceTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/distance_label"
+                        android:textColor="@android:color/white" />
+
+                    <TextView
+                        android:id="@+id/labelDistanceContent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/zero_label"
+                        android:textColor="@android:color/white"
+                        android:textSize="27sp" />
+
+                    <TextView
+                        android:id="@+id/labelDistanceUnit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/distance_unit_label"
+                        android:textColor="@android:color/white"
+                        android:textSize="15sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:padding="15dp" >
+
+            <Button
+                android:id="@+id/btnStartTraining"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#03d703"
+                android:padding="15dp"
+                android:text="@string/start_training_btn" >
+            </Button>
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

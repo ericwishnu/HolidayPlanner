@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+      <PreferenceCategory 
+        android:title="Category1"
+        android:key="pref_key_storage_settings">
+        <CheckBoxPreference
+            android:key="pref_key_auto_delete"
+            android:summary="Enable or disable notification"
+            android:title="Reminder toogle"
+            android:defaultValue="true" />
+        <Preference 
+            android:key="pref_key_sms_delete_limit"
+            android:dependency="pref_key_auto_delete"
+            android:summary=""
+            android:title="Social media account"/>
+        <Preference 
+            android:key="pref_key_mms_delete_limit"
+            android:dependency="pref_key_auto_delete"
+            android:summary=""
+            android:title="Text-to-speech"  />
+    </PreferenceCategory>
+
+</PreferenceScreen>
