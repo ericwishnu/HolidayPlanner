@@ -3,39 +3,32 @@ package com.ewish.holidayplanner;
 import java.util.ArrayList;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
-import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ListView;
 
 import com.ewish.holidayplanner.adapter.NavDrawerListAdapter;
 import com.ewish.holidayplanner.model.NavDrawerItem;
+import com.parse.ParseUser;
 	
 	
 
 public class MainActivity extends Activity {
 	//initialize Shared Preference
 	public static final String RUNNINGCOACH_PREF = "RUNNINGCOACH";
-
-	
-	
-	
+	protected static final String TAG = MainActivity.class.getSimpleName();
 	private DrawerLayout mDrawerLayout;
 	private ListView mDrawerList;
 	private ActionBarDrawerToggle mDrawerToggle;
@@ -58,6 +51,30 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
+		ParseUser currentUser = ParseUser.getCurrentUser();
+
+		if (currentUser == null) {
+			navigateToLogin();
+		} else {
+			Log.d(TAG, "username" + currentUser.getUsername());
+		}
+
+		
+		navigationDrawerHandler();
+
+		if (savedInstanceState == null) {
+			// on first time display view for first nav item
+			displayView(0);
+		}
+	}
+	private void navigateToLogin() {
+
+		Intent intent = new Intent(this, LoginActivity.class);
+		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+		startActivity(intent);
+	}
+	private void navigationDrawerHandler() {
 		mTitle = mDrawerTitle = getTitle();
 
 		// load slide menu items
@@ -81,9 +98,8 @@ public class MainActivity extends Activity {
 		navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons.getResourceId(2, -1)));
 		// Communities, Will add a counter here
 		navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(3, -1)));
-		//, true, "22"
-		// Pages
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[4]));
+	
+	
 		// What's hot, We will add a counter here
 		// navDrawerItems.add(new NavDrawerItem(navMenuTitles[5],
 		// navMenuIcons.getResourceId(5, -1), true, "50+"));
@@ -122,11 +138,6 @@ public class MainActivity extends Activity {
 			}
 		};
 		mDrawerLayout.setDrawerListener(mDrawerToggle);
-
-		if (savedInstanceState == null) {
-			// on first time display view for first nav item
-			displayView(0);
-		}
 	}
 
 	/**
@@ -159,6 +170,10 @@ public class MainActivity extends Activity {
 		switch (item.getItemId()) {
 		case R.id.action_settings:
 			return true;
+		case R.id.action_logout:
+			ParseUser.logOut();
+			navigateToLogin();
+			return true;
 		default:
 			return super.onOptionsItemSelected(item);
 		}
@@ -186,18 +201,16 @@ public class MainActivity extends Activity {
 			fragment = new HomeFragment();
 			break;
 		case 1:
-			fragment = new PersonalCoachFragment();
+			fragment = new ContactFragment();
 
 			break;
 		case 2:
-			fragment = new HistoryFragment();
+			fragment = new ReminderFragment();
 			break;
 		case 3:
-			fragment = new HeartRateFragment();
+			fragment = new LocationFragment();
 			break;
-		case 4:
-			fragment = new SettingFragment();
-			break;
+
 
 		default:
 			break;
