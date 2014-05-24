@@ -60,11 +60,24 @@ public class MainActivity extends Activity {
 		}
 
 		
+		
+		
+		
 		navigationDrawerHandler();
 
 		if (savedInstanceState == null) {
 			// on first time display view for first nav item
 			displayView(0);
+		}
+	}
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		switch (requestCode) {
+		case RequestConstant.REQUEST_ADD_GROUP:
+			displayView(RequestConstant.GROUP_FRAGMENT);
+			break;
+		
+		
 		}
 	}
 	private void navigateToLogin() {
@@ -197,11 +210,11 @@ public class MainActivity extends Activity {
 		// update the main content by replacing fragments
 		Fragment fragment = null;
 		switch (position) {
-		case 0:
+		case RequestConstant.HOME_FRAGMENT:
 			fragment = new HomeFragment();
 			break;
-		case 1:
-			fragment = new ContactFragment();
+		case RequestConstant.GROUP_FRAGMENT:
+			fragment = new GroupFragment();
 
 			break;
 		case 2:

@@ -1,0 +1,18 @@
+# view res/layout/activity_main.xml #generated:1
+-keep class android.support.v4.widget.DrawerLayout { <init>(...); }
+
+# view AndroidManifest.xml #generated:17
+-keep class com.ewish.holidayplanner.HolidayPlannerApplication { <init>(...); }
+
+# view AndroidManifest.xml #generated:36
+-keep class com.ewish.holidayplanner.LoginActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:23
+-keep class com.ewish.holidayplanner.MainActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:41
+-keep class com.ewish.holidayplanner.SignUpActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:32
+-keep class com.ewish.holidayplanner.UserSettingActivity { <init>(...); }
+

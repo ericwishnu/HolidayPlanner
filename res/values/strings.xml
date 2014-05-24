@@ -11,7 +11,7 @@
     <!-- Nav Drawer Menu Items -->
     <string-array name="nav_drawer_items">
         <item>Home</item>
-        <item>Contact</item>
+        <item>Group</item>
         <item>Reminder</item>
         <item>Location</item>
     </string-array>
@@ -48,5 +48,8 @@
     <string name="start_training_btn">Start Training</string>
     <string name="txt_sign_up">Don\'t have account?</string>
     <string name="title_activity_sign_up">Sign Up</string>
+    <string name="title_activity_add_group">AddGroupActivity</string>
+    <string name="title_activity_manage_group">ManageGroupActivity</string>
+    <string name="title_activity_invite_member">InviteMemberActivity</string>
 
 </resources>

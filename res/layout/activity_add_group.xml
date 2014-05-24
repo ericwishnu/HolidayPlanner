@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="${packageName}.${activityClass}" >
+
+    <EditText
+        android:id="@+id/groupNameField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Title"
+        android:inputType="text|textPersonName" >
+
+        <requestFocus android:layout_width="wrap_content" />
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/groupDescField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Descriptions"
+        android:inputType="textLongMessage|textMultiLine" />
+
+    <Button
+        android:id="@+id/cancelButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cancel" />
+
+        <Button
+            android:id="@+id/addGroupButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Group" />
+
+</LinearLayout>
