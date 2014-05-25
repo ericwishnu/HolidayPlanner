@@ -80,8 +80,7 @@ public class GroupFragment extends Fragment {
 
 	public void getGroup() {
 		ParseUser user = ParseUser.getCurrentUser();
-		ParseRelation<ParseObject> relation = user
-				.getRelation(ParseConstant.KEY_GROUP_LIST);
+		ParseRelation<ParseObject> relation = user.getRelation(ParseConstant.KEY_GROUP_LIST);
 
 		ParseQuery<ParseObject> query = relation.getQuery();
 		query.findInBackground(new FindCallback<ParseObject>() {
@@ -93,12 +92,9 @@ public class GroupFragment extends Fragment {
 				for (ParseObject object : groups) {
 					HashMap<String, String> group = new HashMap<String, String>();
 
-					group.put(ParseConstant.KEY_NAME,
-							object.getString(ParseConstant.KEY_NAME));
-					group.put(ParseConstant.KEY_DESCRIPTION,
-							object.getString(ParseConstant.KEY_DESCRIPTION));
+					group.put(ParseConstant.KEY_NAME,object.getString(ParseConstant.KEY_NAME));
+					group.put(ParseConstant.KEY_DESCRIPTION,object.getString(ParseConstant.KEY_DESCRIPTION));
 					groupList.add(group);
-
 					objectsId.add(object.getObjectId());
 
 				}

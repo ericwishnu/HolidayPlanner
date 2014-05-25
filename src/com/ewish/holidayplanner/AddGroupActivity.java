@@ -12,8 +12,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseRelation;
 import com.parse.ParseTwitterUtils;
 import com.parse.ParseUser;
@@ -24,7 +26,7 @@ public class AddGroupActivity extends Activity {
 	private EditText mGroupNameField;
 	private EditText mGroupDescField;
 	private Button mAddGroupButton;
-
+	String groupId;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -52,28 +54,61 @@ public class AddGroupActivity extends Activity {
 		group.put(ParseConstant.KEY_NAME, mGroupNameField.getText().toString());
 		group.put(ParseConstant.KEY_DESCRIPTION, mGroupDescField.getText()
 				.toString());
-		String objectID = ParseUser.getCurrentUser().getObjectId();
-		JSONArray temp = new JSONArray();
-		temp.put(objectID);
-		group.put(ParseConstant.KEY_LIST_MEMBER, temp);
+		//String currentUserObjID = ParseUser.getCurrentUser().getObjectId();
+		ParseRelation<ParseObject> memberRelation = group.getRelation(ParseConstant.KEY_MEMBER_LIST);
+		memberRelation.add(ParseUser.getCurrentUser());
+	
+		groupId = group.getObjectId();
+		
+		group.put(ParseConstant.KEY_MODERATOR_ID, ParseUser.getCurrentUser());
 		group.saveInBackground(new SaveCallback() {
 			
 			@Override
 			public void done(ParseException e) {
 				if(e==null){
+					//add Relation group to groupList _User 
 					ParseUser user = ParseUser.getCurrentUser();
-					ParseRelation<ParseObject> relation = user
-							.getRelation(ParseConstant.KEY_GROUP_LIST);
+					ParseRelation<ParseObject> relation = user.getRelation(ParseConstant.KEY_GROUP_LIST);
 					relation.add(group);
-
+					
 					user.saveInBackground(new SaveCallback() {
+						
 						@Override
 						public void done(ParseException e) {
 							if (e == null) {
-								Toast.makeText(getBaseContext(), "Group created",
-										Toast.LENGTH_LONG).show();
-								setResult(Activity.RESULT_OK);
-								finish();
+								//insert to group Relation
+								String groupId = group.getObjectId();
+								ParseQuery<ParseObject> queryCurGroup = ParseQuery.getQuery(ParseConstant.TABLE_GROUPS);
+								queryCurGroup.getInBackground(groupId, new GetCallback<ParseObject>() {
+									
+									@Override
+									public void done(ParseObject currentGroup, ParseException e) {
+										if(e==null){
+											ParseObject groupRelation = new ParseObject(ParseConstant.TABLE_GROUP_RELATION);
+											groupRelation.put(ParseConstant.KEY_GROUP_ID, currentGroup);
+											groupRelation.put(ParseConstant.KEY_USER_ID, ParseUser.getCurrentUser());
+											groupRelation.put(ParseConstant.KEY_STATUS, true);
+											groupRelation.saveInBackground(new SaveCallback() {
+											
+												@Override
+												public void done(ParseException e) {
+													if(e == null){
+														Toast.makeText(getBaseContext(), "Group created",Toast.LENGTH_LONG).show();
+														setResult(Activity.RESULT_OK);
+														finish();
+													}
+													
+													
+												}
+											});
+										}
+										
+									}
+								});
+										
+										
+							
+							
 							}
 							else{
 								parseErrorDialog(e);
