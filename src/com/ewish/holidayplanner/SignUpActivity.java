@@ -25,10 +25,11 @@ public class SignUpActivity extends Activity {
 	public static final String EXTRA_EMAIL = "com.example.android.authenticatordemo.extra.EMAIL";
 	private String mEmail;
 	private String mPassword;
-	
+	private String mName;
 	// UI references.
 	private EditText mEmailView;
 	private EditText mPasswordView;
+	private EditText mNameView;
 	private View mLoginFormView;
 	private View mLoginStatusView;
 	private TextView mLoginStatusMessageView;
@@ -38,7 +39,8 @@ public class SignUpActivity extends Activity {
 		setContentView(R.layout.activity_sign_up);
 		// Set up the signup form.
 		//mEmail = getIntent().getStringExtra(EXTRA_EMAIL);
-		mEmailView = (EditText) findViewById(R.id.email);
+		mEmailView = (EditText) findViewById(R.id.emailField);
+		mNameView = (EditText) findViewById(R.id.nameField);
 		//mEmailView.setText(mEmail);
 
 		mPasswordView = (EditText) findViewById(R.id.password);
@@ -78,10 +80,18 @@ public class SignUpActivity extends Activity {
 		// Store values at the time of the login attempt.
 		mEmail = mEmailView.getText().toString();
 		mPassword = mPasswordView.getText().toString();
-
+		mName = mNameView.getText().toString();
+		
 		boolean cancel = false;
 		View focusView = null;
 
+		
+		//check for valid name
+		if(TextUtils.isEmpty(mName)){
+			mNameView.setError(getString(R.string.error_field_required));
+			focusView=mNameView;
+			cancel = true;
+		}
 		// Check for a valid password.
 		if (TextUtils.isEmpty(mPassword)) {
 			mPasswordView.setError(getString(R.string.error_field_required));
@@ -117,8 +127,9 @@ public class SignUpActivity extends Activity {
 			newUser.setUsername(mEmail);
 			newUser.setPassword(mPassword);
 			newUser.setEmail(mEmail);
+			newUser.put(ParseConstant.KEY_NAME, mName);
 			newUser.signUpInBackground(new SignUpCallback() {
-				
+			
 				@Override
 				public void done(ParseException e) {
 					setProgressBarIndeterminateVisibility(false);
