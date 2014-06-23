@@ -80,9 +80,8 @@ public class InviteMemberActivity extends Activity {
 																push.setQuery(pushQuery);
 //																String message = ParseUser.getCurrentUser().getString(ParseConstant.KEY_NAME).toString() + 
 //																		"Have invite you to "+ group.getString(ParseConstant.KEY_NAME).toString();
-//																
-																push.setMessage(ParseUser.getCurrentUser().getUsername()+"invited you to group");
 																
+																push.setMessage(ParseUser.getCurrentUser().getUsername()+" invited you to group");
 																push.sendInBackground();
 																
 																Toast.makeText(getApplicationContext(),"Invited "+targetUser.getString(ParseConstant.KEY_EMAIL),	Toast.LENGTH_SHORT).show();

@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
@@ -18,15 +19,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.ewish.holidayplanner.adapter.NavDrawerListAdapter;
 import com.ewish.holidayplanner.model.NavDrawerItem;
+import com.parse.ParseAnalytics;
+import com.parse.ParseInstallation;
 import com.parse.ParseUser;
-	
-	
 
 public class MainActivity extends Activity {
-	//initialize Shared Preference
+	// initialize Shared Preference
 	public static final String RUNNINGCOACH_PREF = "RUNNINGCOACH";
 	protected static final String TAG = MainActivity.class.getSimpleName();
 	private DrawerLayout mDrawerLayout;
@@ -35,10 +37,11 @@ public class MainActivity extends Activity {
 	final Context context = this;
 	// nav drawer title
 	private CharSequence mDrawerTitle;
-	
+
 	// used to store app title
 	private CharSequence mTitle;
-
+	// Variables
+	private boolean doubleBackToExitPressedOnce = false;
 	// slide menu items
 	private String[] navMenuTitles;
 	private TypedArray navMenuIcons;
@@ -50,19 +53,18 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
+		ParseAnalytics.trackAppOpened(getIntent());
 		ParseUser currentUser = ParseUser.getCurrentUser();
 
 		if (currentUser == null) {
 			navigateToLogin();
 		} else {
+//			ParseInstallation installation = ParseInstallation.getCurrentInstallation();
+//			installation.put(ParseConstant.KEY_USER_ID, ParseUser.getCurrentUser());
+//			installation.saveInBackground();
 			Log.d(TAG, "username" + currentUser.getUsername());
 		}
 
-		
-		
-		
-		
 		navigationDrawerHandler();
 
 		if (savedInstanceState == null) {
@@ -70,16 +72,17 @@ public class MainActivity extends Activity {
 			displayView(0);
 		}
 	}
+
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
 		switch (requestCode) {
 		case RequestConstant.REQUEST_ADD_GROUP:
 			displayView(RequestConstant.GROUP_FRAGMENT);
 			break;
-		
-		
+
 		}
 	}
+
 	private void navigateToLogin() {
 
 		Intent intent = new Intent(this, LoginActivity.class);
@@ -87,6 +90,7 @@ public class MainActivity extends Activity {
 		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
 		startActivity(intent);
 	}
+
 	private void navigationDrawerHandler() {
 		mTitle = mDrawerTitle = getTitle();
 
@@ -104,15 +108,18 @@ public class MainActivity extends Activity {
 
 		// adding nav drawer items to array
 		// Home
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[0], navMenuIcons.getResourceId(0, -1)));
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[0], navMenuIcons
+				.getResourceId(0, -1)));
 		// Find People
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons.getResourceId(1, -1)));
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons
+				.getResourceId(1, -1)));
 		// Photos
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons.getResourceId(2, -1)));
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons
+				.getResourceId(2, -1)));
 		// Communities, Will add a counter here
-		navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(3, -1)));
-	
-	
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons
+				.getResourceId(3, -1)));
+
 		// What's hot, We will add a counter here
 		// navDrawerItems.add(new NavDrawerItem(navMenuTitles[5],
 		// navMenuIcons.getResourceId(5, -1), true, "50+"));
@@ -221,9 +228,8 @@ public class MainActivity extends Activity {
 			fragment = new ReminderFragment();
 			break;
 		case 3:
-			fragment = new LocationFragment();
+			fragment = new InboxFragment();
 			break;
-
 
 		default:
 			break;
@@ -270,7 +276,25 @@ public class MainActivity extends Activity {
 		// Pass any configuration change to the drawer toggles
 		mDrawerToggle.onConfigurationChanged(newConfig);
 	}
-	
 
+	@Override
+	public void onBackPressed() {
+		if (doubleBackToExitPressedOnce) {
+			super.onBackPressed();
+			return;
+		}
+
+		this.doubleBackToExitPressedOnce = true;
+		Toast.makeText(this, "Please click BACK again to exit",
+				Toast.LENGTH_SHORT).show();
+
+		new Handler().postDelayed(new Runnable() {
+
+			@Override
+			public void run() {
+				doubleBackToExitPressedOnce = false;
+			}
+		}, 2000);
+	}
 
 }

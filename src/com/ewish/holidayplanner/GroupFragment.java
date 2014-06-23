@@ -48,9 +48,9 @@ public class GroupFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 
-		final View rootView = inflater.inflate(R.layout.fragment_group,
-				container, false);
+		final View rootView = inflater.inflate(R.layout.fragment_group, container, false);
 		context = rootView.getContext();
+		
 		declareLayout(rootView);
 		mCreateGroupBtn.setOnClickListener(new OnClickListener() {
 			@Override
@@ -70,6 +70,8 @@ public class GroupFragment extends Fragment {
 	@Override
 	public void onResume() {
 		super.onResume();
+		
+		objectsId.clear();
 		getGroup();
 	}
 
@@ -91,9 +93,8 @@ public class GroupFragment extends Fragment {
 				clearArrayList();
 				for (ParseObject object : groups) {
 					HashMap<String, String> group = new HashMap<String, String>();
-
-					group.put(ParseConstant.KEY_NAME,object.getString(ParseConstant.KEY_NAME));
-					group.put(ParseConstant.KEY_DESCRIPTION,object.getString(ParseConstant.KEY_DESCRIPTION));
+					group.put(ParseConstant.KEY_NAME, object.getString(ParseConstant.KEY_NAME));
+					group.put(ParseConstant.KEY_DESCRIPTION, object.getString(ParseConstant.KEY_DESCRIPTION));
 					groupList.add(group);
 					objectsId.add(object.getObjectId());
 
@@ -102,13 +103,10 @@ public class GroupFragment extends Fragment {
 						ParseConstant.KEY_DESCRIPTION };
 				int[] ids = { android.R.id.text1, android.R.id.text2 };
 
-				SimpleAdapter adapter = new SimpleAdapter(getActivity(),
-						groupList, android.R.layout.simple_list_item_2, keys,
-						ids);
+				SimpleAdapter adapter = new SimpleAdapter(getActivity(), groupList, android.R.layout.simple_list_item_2, keys, ids);
 				mListView.setAdapter(adapter);
 
-				Toast.makeText(context, "Size: " + groups.size(),
-						Toast.LENGTH_LONG).show();
+				Toast.makeText(context, "Size: " + groups.size(), Toast.LENGTH_LONG).show();
 			}
 
 			private void clearArrayList() {

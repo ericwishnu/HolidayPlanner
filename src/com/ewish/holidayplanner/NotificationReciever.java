@@ -17,11 +17,11 @@ public class NotificationReciever extends BroadcastReceiver {
 	public void onReceive(Context context, Intent intent) {
 		try {
 			String action = intent.getAction();
-			String channel = intent.getExtras().getString("com.parse.Channel");
+			//String channel = intent.getExtras().getString("com.parse.Channel");
 			JSONObject json = new JSONObject(intent.getExtras().getString("com.parse.Data"));
 
-			Log.d(TAG, "got action " + action + " on channel " + channel
-					+ " with:");
+//			Log.d(TAG, "got action " + action + " on channel " + channel
+//					+ " with:");
 			Iterator itr = json.keys();
 			while (itr.hasNext()) {
 				String key = (String) itr.next();

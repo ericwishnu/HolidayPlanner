@@ -6,10 +6,29 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/welcomeTxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Large Text"
+        android:text="Welcome"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/welcomeEmailTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Small Text"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <Button
+        android:id="@+id/pushEventDataButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Push Event Data" />
+
+    <Button
+        android:id="@+id/pickDateButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pick Date" />
 	
 </LinearLayout>

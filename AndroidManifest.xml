@@ -8,25 +8,23 @@
         android:minSdkVersion="14"
         android:targetSdkVersion="18" />
 
-    <uses-permission android:name="android.permission.READ_CALENDAR" />
-    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
     <!--
-  IMPORTANT: Change "com.parse.starter.permission.C2D_MESSAGE" in the lines below
+  IMPORTANT: Change "com.parse.tutorials.pushnotifications.permission.C2D_MESSAGE" in the lines below
   to match your app's package name + ".permission.C2D_MESSAGE".
     -->
     <permission
         android:name="com.ewish.holidayplanner.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
 
-    <uses-permission android:name="com.ewish.holidayplanner.C2D_MESSAGE" />
+    <uses-permission android:name="com.ewish.holidayplanner.permission.C2D_MESSAGE" />
 
     <application
         android:name="com.ewish.holidayplanner.HolidayPlannerApplication"
@@ -34,6 +32,10 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@android:style/Theme.Holo.Light" >
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
         <activity
             android:name="com.ewish.holidayplanner.MainActivity"
             android:label="@string/app_name" >
@@ -69,7 +71,7 @@
             android:name="com.ewish.holidayplanner.InviteMemberActivity"
             android:label="@string/title_activity_invite_member" >
         </activity>
- <!-- ParsePush Services -->
+        <!-- ParsePush Services -->
         <service android:name="com.parse.PushService" />
 
         <receiver android:name="com.parse.ParseBroadcastReceiver" >
@@ -85,17 +87,26 @@
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
 
-                <!-- IMPORTANT: Change "com.parse.starter" to match your app's package name. -->
                 <category android:name="com.ewish.holidayplanner" />
             </intent-filter>
         </receiver>
-        <receiver
-            android:name="com.ewish.holidayplanner.NotificationReciever"
-            android:exported="false" >
-            <intent-filter>
-                <action android:name="com.ewish.holidayplanner.UPDATE_STATUS" />
-            </intent-filter>
-        </receiver>
+
+        <activity
+            android:name="com.ewish.holidayplanner.ApproveInvitationActivity"
+            android:label="@string/title_activity_approve_invitation" >
+        </activity>
+        <activity
+            android:name="com.ewish.holidayplanner.FreeScheduleActivity"
+            android:label="@string/title_activity_free_schedule" >
+        </activity>
+        <activity
+            android:name="com.ewish.holidayplanner.ShowScheduleActivity"
+            android:label="@string/title_activity_show_schedlue" >
+        </activity>
+        <activity
+            android:name="com.ewish.holidayplanner.CreateEventActivity"
+            android:label="@string/title_activity_create_event" >
+        </activity>
     </application>
 
 </manifest>

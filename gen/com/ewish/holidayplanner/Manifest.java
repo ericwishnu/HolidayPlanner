@@ -10,7 +10,7 @@ package com.ewish.holidayplanner;
 public final class Manifest {
     public static final class permission {
         /** 
-  IMPORTANT: Change "com.parse.starter.permission.C2D_MESSAGE" in the lines below
+  IMPORTANT: Change "com.parse.tutorials.pushnotifications.permission.C2D_MESSAGE" in the lines below
   to match your app's package name + ".permission.C2D_MESSAGE".
     
          */

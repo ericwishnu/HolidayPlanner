@@ -1,6 +1,7 @@
 package com.ewish.holidayplanner;
 
 public class ParseConstant {
+	public static final String TABLE_EVENTS = "Events";
 	public static final String TABLE_GROUPS = "Groups";
 	public static final String TABLE_GROUP_RELATION = "GroupRelation";
 	public static final String TABLE_USER = "_User";
@@ -21,6 +22,17 @@ public class ParseConstant {
 	public static final String KEY_DESCRIPTION = "description";
 	public static final String KEY_MODERATOR_ID = "moderatorId";
 	public static final String KEY_MEMBER_LIST = "listMember";
+	
+	
+	
+	public static final String KEY_CALENDAR_ID = "calendarId";
+	public static final String KEY_EVENT_ID = "eventId";
+	public static final String KEY_TITLE = "title";
+	public static final String KEY_DATE_START = "dateStart";
+	public static final String KEY_DATE_END = "dateEnd";
+	public static final String KEY_AVAILABILITY = "availability";
+	public static final String KEY_ORGANIZER = "organizer";
+	public static final String KEY_CREATOR = "creator";
 	
 	
 }

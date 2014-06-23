@@ -13,6 +13,12 @@
         android:text="Invite Member" 
         android:onClick="inviteMember"/>
 
+    <Button
+        android:id="@+id/leaveGroupButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Leave Group" />
+
     <ListView
         android:id="@+id/listMember"
         android:layout_width="match_parent"

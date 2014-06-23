@@ -1,0 +1,40 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="${packageName}.${activityClass}" >
+
+    <TextView
+        android:id="@+id/inboxTitleField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#d5d4d4"
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/inboxContentField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ebe7e7"
+        android:minHeight="80dp"
+        android:text="Small Text"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <Button
+        android:id="@+id/inboxRejectButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/light_red"
+        android:text="Reject" />
+
+    <Button
+        android:id="@+id/inboxApproveButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/light_green"
+        android:text="Approve" />
+
+</LinearLayout>

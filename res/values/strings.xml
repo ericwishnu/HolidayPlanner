@@ -13,37 +13,23 @@
         <item>Home</item>
         <item>Group</item>
         <item>Reminder</item>
-        <item>Location</item>
+        <item>Inbox</item>
     </string-array>
 
     <!-- Nav Drawer List Item Icons -->
     <!-- Keep them in order as the titles are in -->
     <array name="nav_drawer_icons">
         <item>@drawable/ic_home</item>
-        <item>@drawable/ic_people</item>
-        <item>@drawable/ic_photos</item>
-        <item>@drawable/ic_communities</item>
+        <item>@drawable/ic_group</item>
+        <item>@drawable/ic_reminder</item>
+        <item>@drawable/ic_inbox</item>
         <item>@drawable/ic_pages</item>
         <item>@drawable/ic_whats_hot</item>
     </array>
 
     <!-- Content Description -->
     <string name="desc_list_item_icon">Item Icon</string>
-    <string name="personal_info_label">Personal Coach</string>
-    <string name="desc_personal_info_btn">Edit personal info</string>
-    <string name="bmi_label">BMI</string>
-    <string name="target_label">Target</string>
-    <string name="calories_label">Calories</string>
-    <string name="time_label">Time</string>
-    <string name="distance_label">Distance</string>
-    <string name="weight_label">Weight</string>
-    <string name="height_label">Height</string>
-    <string name="kg_label">kg</string>
-    <string name="time_unit_label">minutes</string>
-    <string name="cm_label">cm</string>
-    <string name="bmi_subheader_label">Your BMI is: </string>
-    <string name="calories_unit_label">kkcal</string>
-    <string name="distance_unit_label">km</string>
+
     <string name="zero_label">0</string>
     <string name="start_training_btn">Start Training</string>
     <string name="txt_sign_up">Don\'t have account?</string>
@@ -51,5 +37,53 @@
     <string name="title_activity_add_group">AddGroupActivity</string>
     <string name="title_activity_manage_group">ManageGroupActivity</string>
     <string name="title_activity_invite_member">InviteMemberActivity</string>
+    <string name="title_activity_approve_invitation">ApproveInvitationActivity</string>
+    <string name="title_activity_free_schedule">FreeScheduleActivity</string>
+    <string name="title_activity_show_schedlue">ShowSchedlueActivity</string>
+    <string name="title_activity_create_event">CreateEventActivity</string>
+    
+     <string name="no_reminders">Add new Event</string>
+    <string name="no_locations">Add new Location</string>
+    <string name="Add_Event">Add Event </string>
+    <string name="title">Title </string>
+    <string name="Priority">Priority </string>
+    <string name="notes">Notes </string>
+    <string name="date">Date</string>   
+    <string name="time">Time </string>
+    <string name="alarms">Alarms </string>
+    <string name="Picture">Pictures </string>
+    <string name="Location">Location </string>
+    <string name="Voice_Memo">Voice Memo </string>
+    <string name="Save">Save </string>
+    <string name="Cancel">Cancel </string>
+    <string name="Delete">Delete </string>
+    <string name="Snooze">Snooze </string>
+    <string name="add_window_title">Add Event </string>
+    <string name="menu_AddEvent">Add Event </string>
+    <string name="help">Help</string>
+    <string name="menu_AddLocation">Add Location</string>
+    <string name="list_of_events">List of Events</string>
+    <string name="list_event_delete">Delete Event</string>
+    <string name="list_location_delete">Delete Location</string>
+    <string name="event_saved_message">Event saved</string>
+    <string name="event_canceled_message">Canceled</string>
+    <string name="event_deleted_message">Event Deleted</string>
+    <string name=" notifiy_new_task_title">Event Reminder</string>
+    <string name="notify_new_task_message">New reminder</string>
+    <string name="SetTimeUpdate">Set Time Update</string>
+    <string name="SetLocationUpdate">Set Location Update</string>
+    <string name="addNewLocation">Pick Location On Map</string>
+    <string name="useSavedLocation">Pick Location</string>
+    <string name="useCurrentLocation">Use Current Location</string>
+    <!-- Preferences -->
+	<string name="pref_category_location_defaults_key">Location_default_category</string>
+	<string name="pref_category_location_defaults_title">Location Title Default</string>
+	<string name="pref_location_title_key">default_location_title</string>
+	<string name="pref_location_title_dialog_title">Default Location Title</string>
+	<string name="pref_location_title_message">The default title for a location.</string>
+	<string name="pref_location_title_summary">Default title for locations.</string>
+	<string name="pref_location_title_title">Default Location Title</string>
+	<string name="no_pick_message">Please Pick Location</string>
+	<string name="no_title_message">Please Enter a Title</string>
 
 </resources>

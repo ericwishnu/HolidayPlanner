@@ -1,0 +1,34 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="${packageName}.${activityClass}" >
+
+    <Button
+        android:id="@+id/createEventButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create Event" />
+
+    <TextView
+        android:id="@+id/groupNameTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Group Name" />
+
+    <TextView
+        android:id="@+id/selectedDateTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="19 June 2014"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <ListView
+        android:id="@+id/listMemberAvailability"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </ListView>
+
+</LinearLayout>
