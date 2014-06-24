@@ -26,15 +26,20 @@ reminder uses this layout  -->
   		android:textStyle="bold"
   		android:layout_weight="0.08"
   		/>
+
   	<EditText
-  		android:id="@+id/notes"
-  		android:layout_width="fill_parent"
-  		android:layout_height="wrap_content"
-  		android:minLines="3"
-  		android:scrollbars="vertical"
-  		android:gravity="top"
-  		android:layout_weight="0.09"
-  		/>
+  	    android:id="@+id/notes"
+  	    android:layout_width="fill_parent"
+  	    android:layout_height="wrap_content"
+  	    android:layout_weight="0.09"
+  	    android:ems="10"
+  	    android:gravity="top"
+  	    android:minLines="3"
+  	    android:scrollbars="vertical" >
+
+  	    <requestFocus />
+  	</EditText>
+
   	<LinearLayout
   		android:id = "@+id/EventOptionsLayout" 
     	android:layout_width="fill_parent" 

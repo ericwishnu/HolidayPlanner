@@ -71,6 +71,22 @@
             android:name="com.ewish.holidayplanner.InviteMemberActivity"
             android:label="@string/title_activity_invite_member" >
         </activity>
+        <activity
+            android:name="com.ewish.holidayplanner.MainReminder"
+             >
+        </activity>
+        <activity
+            android:name="com.ewish.holidayplanner.AddReminder"
+            >
+        </activity>
+        <activity
+            android:name="com.ewish.holidayplanner.LocationActivity"
+            >
+        </activity>
+        <activity
+            android:name="com.ewish.holidayplanner.AddLocationOnMap"
+            android:label="AddlocationOnMap">
+        </activity>
         <!-- ParsePush Services -->
         <service android:name="com.parse.PushService" />
 
